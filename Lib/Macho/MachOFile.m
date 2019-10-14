@@ -48,6 +48,8 @@ unsigned char *pCurrent = NULL;
     self = [super init];
     if(self) {
         _libraryName = libName;
+        _sections = [NSMutableArray array];
+        _commands = [NSMutableArray array];
     }
     
     return self;
@@ -58,6 +60,8 @@ unsigned char *pCurrent = NULL;
     if(self) {
         _libraryName = libPath;
         _libraryName = [libPath lastPathComponent];
+        _sections = [NSMutableArray array];
+        _commands = [NSMutableArray array];
     }
     
     return self;
@@ -121,6 +125,8 @@ unsigned char *pCurrent = NULL;
         } else if([self isCommand: pCurrent]) {
             struct load_command *command = (struct load_command*)pCurrent;
             [self addLoadCommand: command];
+        } else {
+            isValid = false;
         }
     }
 }
@@ -318,7 +324,7 @@ unsigned char *pCurrent = NULL;
     obj.flags = header->flags;
     
     pCurrent = (unsigned char*)(header + sizeof(struct mach_header_64));
-    _size += sizeof(struct mach_header_64);
+    _size += (sizeof(struct mach_header_64) + obj.totalSizeOfLoadCommands);
     
     return obj;
 }
@@ -344,8 +350,6 @@ unsigned char *pCurrent = NULL;
         [obj.sections addObject: section];
     }
     
-    _size += obj.commandSize;
-    
     return obj;
 }
 
@@ -365,8 +369,8 @@ unsigned char *pCurrent = NULL;
     obj.reserved2 = section->reserved2;
     obj.reserved3 = section->reserved3;
     
-    pCurrent += obj.size;
-    _size += obj.size;
+    pCurrent += sizeof(struct section_64);
+    _size += sizeof(struct section_64);
     
     return obj;
 }
@@ -382,7 +386,7 @@ unsigned char *pCurrent = NULL;
     obj.compatibilityVersion = command->dylib.compatibility_version;
     
     pCurrent += command->cmdsize;
-    _size += obj.commandSize + [obj getDataSize];
+   _size += [obj getDataSize];
     
     return obj;
 }
@@ -431,7 +435,7 @@ unsigned char *pCurrent = NULL;
     obj.nameOffset = command->umbrella.offset;
     
     pCurrent += command->cmdsize;
-    _size += obj.commandSize + [obj getDataSize];
+    _size += [obj getDataSize];
     
     return obj;
 }
@@ -445,7 +449,7 @@ unsigned char *pCurrent = NULL;
     obj.linkedModules = command->name.offset;
     
     pCurrent += command->cmdsize;
-    _size += obj.commandSize + [obj getDataSize];
+    _size += [obj getDataSize];
     
     return obj;
 }
@@ -487,7 +491,7 @@ unsigned char *pCurrent = NULL;
     obj.reserved6 = command->reserved6;
     
     pCurrent += command->cmdsize;
-    _size += obj.commandSize + [obj getDataSize];
+    _size += [obj getDataSize];
     
     return obj;
 }
@@ -503,7 +507,7 @@ unsigned char *pCurrent = NULL;
     obj.sizeOfStringTable = command->strsize;
     
     pCurrent += command->cmdsize;
-    _size += obj.commandSize + [obj getDataSize];
+    _size += [obj getDataSize];
     
     return obj;
 }
@@ -529,7 +533,7 @@ unsigned char *pCurrent = NULL;
     obj.numberOfLocalRelocEntries = command->nlocrel;
     
     pCurrent += command->cmdsize;
-    _size += obj.commandSize + [obj getDataSize];
+    _size += [obj getDataSize];
     
     return obj;
 }
@@ -543,7 +547,7 @@ unsigned char *pCurrent = NULL;
     obj.numberOfHints = command->nhints;
     
     pCurrent += command->cmdsize;
-    _size += obj.commandSize + [obj getDataSize];
+    _size += [obj getDataSize];
     
     return obj;
 }
@@ -556,7 +560,7 @@ unsigned char *pCurrent = NULL;
     obj.checksum = command->cksum;
     
     pCurrent += command->cmdsize;
-    _size += obj.commandSize + [obj getDataSize];
+    _size += [obj getDataSize];
     
     return obj;
 }
@@ -569,7 +573,7 @@ unsigned char *pCurrent = NULL;
     obj.uuid = [NSData dataWithBytes: command->uuid length: 16];
     
     pCurrent += command->cmdsize;
-    _size += obj.commandSize + [obj getDataSize];
+    _size += [obj getDataSize];
     
     return obj;
 }
@@ -583,7 +587,7 @@ unsigned char *pCurrent = NULL;
     obj.dataSize = command->datasize;
     
     pCurrent += command->cmdsize;
-    _size += obj.commandSize + [obj getDataSize];
+    _size += [obj getDataSize];
     
     return obj;
 }
@@ -598,7 +602,7 @@ unsigned char *pCurrent = NULL;
     obj.cryptId = command->cryptid;
 
     pCurrent += command->cmdsize;
-    _size += obj.commandSize + [obj getDataSize];
+    _size += [obj getDataSize];
     
     return obj;
 }
@@ -612,7 +616,7 @@ unsigned char *pCurrent = NULL;
     obj.sdk = [[Version alloc] initWithNumber: command->sdk];
     
     pCurrent += command->cmdsize;
-    _size += obj.commandSize + [obj getDataSize];
+    _size += [obj getDataSize];
     
     return obj;
 }
@@ -636,7 +640,7 @@ unsigned char *pCurrent = NULL;
         pCurrent += sizeof(struct build_tool_version);
     }
     
-    _size += obj.commandSize + [obj getDataSize];
+    _size += [obj getDataSize];
     
     return obj;
 }
@@ -656,8 +660,7 @@ unsigned char *pCurrent = NULL;
     obj.sizeOfLazyBindingInfo = command->export_size;
     
     pCurrent += obj.commandSize;
-    _size += obj.commandSize + [obj getDataSize];
-    
+    _size += [obj getDataSize];
     return obj;
     
 }
@@ -670,7 +673,7 @@ unsigned char *pCurrent = NULL;
     obj.numberOfStrings = command->count;
     
     pCurrent += obj.commandSize;
-    _size += obj.commandSize + [obj getDataSize];
+    _size += [obj getDataSize];
     
     return obj;
 }
@@ -684,7 +687,7 @@ unsigned char *pCurrent = NULL;
     obj.sizeOfSymbolSegment = command->size;
     
     pCurrent += obj.commandSize;
-    _size += obj.commandSize + [obj getDataSize];
+    _size += [obj getDataSize];
     
     return obj;
 }
@@ -698,7 +701,7 @@ unsigned char *pCurrent = NULL;
     obj.headerAddress = command->header_addr;
     
     pCurrent += obj.commandSize;
-    _size += obj.commandSize + [obj getDataSize];
+    _size += [obj getDataSize];
     
     return obj;
 }
@@ -712,7 +715,7 @@ unsigned char *pCurrent = NULL;
     obj.stackSize = command->stacksize;
     
     pCurrent += obj.commandSize;
-    _size += obj.commandSize + [obj getDataSize];
+    _size += [obj getDataSize];
     
     return obj;
     
@@ -726,7 +729,7 @@ unsigned char *pCurrent = NULL;
     obj.version = command->version;
     
     pCurrent += obj.commandSize;
-    _size += obj.commandSize + [obj getDataSize];
+    _size += [obj getDataSize];
     
     return obj;
 }
@@ -741,7 +744,7 @@ unsigned char *pCurrent = NULL;
     obj.size = command->size;
      
     pCurrent += obj.commandSize;
-    _size += obj.commandSize + [obj getDataSize];
+    _size += [obj getDataSize];
      
     return obj;
 }
