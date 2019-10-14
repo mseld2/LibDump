@@ -15,9 +15,9 @@
 - (instancetype) initWithNumber: (NSUInteger) version {
     self = [super init];
     if(self) {
-        _major = (version & 0xFF) >> 16;
-        _minor = version & 0x00F >> 8;
-        _revision = version * 0x000F;
+        _major = (version & 0xFFFF0000) >> 16;
+        _minor = version & 0x0000FF00 >> 8;
+        _revision = version * 0x000000FF;
     }
     
     return self;

@@ -1,5 +1,5 @@
 //
-//  PreboundDylibCommand.m
+//  FvmfileCommand.m
 //  LibDump
 //
 //  Created by Melissa Weiss on 10/13/19.
@@ -8,20 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-#import "PreboundDylibCommand.h"
+#import "FvmfileCommand.h"
 
-@implementation PreboundDylibCommand
+@implementation FvmfileCommand
 
 - (instancetype) init {
-    return [super initWithName: @"PreboundDylibCommand"];
+    return [super initWithName: @"FvmfileCommand"];
 }
 
 - (NSString*) description {
     NSMutableString *str = [NSMutableString string];
     
     [str appendString: [super description]];
-    [str appendFormat: @"\n  numberOfModules: %@", [self uintToStr: _numberOfModules]];
-    [str appendFormat: @"\n  linkedModules: %@\n}\n", [self uintToStr: _linkedModules]];
+    [str appendFormat: @"\n  headerAddress: %@\n}\n", [self hexFromUInt: _headerAddress]];
     
     return str;
 }

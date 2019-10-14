@@ -32,6 +32,12 @@
 #import "BuildVersionCommand.h"
 #import "BuildToolVersion.h"
 #import "DyldInfoCommand.h"
+#import "LinkerOptionCommand.h"
+#import "SymsegCommand.h"
+#import "FvmfileCommand.h"
+#import "EntryPointCommand.h"
+#import "SourceVersionCommand.h"
+#import "NoteCommand.h"
 
 @implementation MachOFile
 
@@ -156,13 +162,11 @@ unsigned char *pCurrent = NULL;
         }
             break;
         case LC_THREAD:
+        case LC_UNIXTHREAD:
+        case LC_IDENT:
         {
-            LoadCommand *command = [LoadCommand alloc];
-            command.command = loadCommand->cmd;
-            command.commandSize = loadCommand->cmdsize;
+            LoadCommand *command = [self readLoadCommand: loadCommand];
             [_commands addObject: command];
-            pCurrent += loadCommand->cmdsize;
-            _size += loadCommand->cmdsize;
         }
             break;
         case LC_ROUTINES_64:
@@ -241,8 +245,42 @@ unsigned char *pCurrent = NULL;
             [_commands addObject: command];
         }
             break;
-            
-            
+        case LC_LINKER_OPTION:
+        {
+            LinkerOptionCommand *command = [self readLinkerOptionCommand];
+            [_commands addObject: command];
+        }
+            break;
+        case LC_SYMSEG:
+        {
+            SymsegCommand *command = [self readSymsegCommand];
+            [_commands addObject: command];
+        }
+            break;
+        case LC_FVMFILE:
+        {
+            FvmfileCommand *command = [self readFvmfileCommand];
+            [_commands addObject: command];
+        }
+            break;
+        case LC_MAIN:
+        {
+            EntryPointCommand *command = [self readEntryPointCommand];
+            [_commands addObject: command];
+        }
+            break;
+        case LC_SOURCE_VERSION:
+        {
+            SourceVersionCommand *command = [self readSourceVersionCommand];
+            [_commands addObject: command];
+        }
+            break;
+        case LC_NOTE:
+        {
+            NoteCommand *command = [self readNoteCommand];
+            [_commands addObject: command];
+        }
+            break;
     }
 }
 
@@ -409,6 +447,28 @@ unsigned char *pCurrent = NULL;
     pCurrent += command->cmdsize;
     _size += obj.commandSize + [obj getDataSize];
     
+    return obj;
+}
+
+- (LoadCommand*) readLoadCommand: (struct load_command*) loadCommand {
+    NSString *commandType;
+    switch(loadCommand->cmd)
+    {
+        case LC_IDENT:
+            commandType = @"IdentCommand";
+            break;
+        case LC_THREAD:
+        case LC_UNIXTHREAD:
+            commandType = @"ThreadCommand";
+            break;
+    }
+    LoadCommand *obj = [[LoadCommand alloc] initWithName: commandType];
+    obj.command = loadCommand->cmd;
+    obj.commandSize = loadCommand->cmdsize;
+        
+    pCurrent += loadCommand->cmdsize;
+    _size += loadCommand->cmdsize;
+        
     return obj;
 }
 
@@ -600,6 +660,90 @@ unsigned char *pCurrent = NULL;
     
     return obj;
     
+}
+
+- (LinkerOptionCommand*) readLinkerOptionCommand {
+    struct linker_option_command *command = (struct linker_option_command*)pCurrent;
+    LinkerOptionCommand *obj = [LinkerOptionCommand alloc];
+    obj.command = command->cmd;
+    obj.commandSize = command->cmdsize;
+    obj.numberOfStrings = command->count;
+    
+    pCurrent += obj.commandSize;
+    _size += obj.commandSize + [obj getDataSize];
+    
+    return obj;
+}
+
+- (SymsegCommand*) readSymsegCommand {
+    struct symseg_command *command = (struct symseg_command*)pCurrent;
+    SymsegCommand *obj = [SymsegCommand alloc];
+    obj.command = command->cmd;
+    obj.commandSize = command->cmdsize;
+    obj.symbolSegmentOffset = command->offset;
+    obj.sizeOfSymbolSegment = command->size;
+    
+    pCurrent += obj.commandSize;
+    _size += obj.commandSize + [obj getDataSize];
+    
+    return obj;
+}
+
+- (FvmfileCommand*) readFvmfileCommand {
+    struct fvmfile_command *command = (struct fvmfile_command*)pCurrent;
+    FvmfileCommand *obj = [FvmfileCommand alloc];
+    obj.command = command->cmd;
+    obj.commandSize = command->cmdsize;
+    obj.nameOffset = command->name.offset;
+    obj.headerAddress = command->header_addr;
+    
+    pCurrent += obj.commandSize;
+    _size += obj.commandSize + [obj getDataSize];
+    
+    return obj;
+}
+
+- (EntryPointCommand*) readEntryPointCommand {
+    struct entry_point_command *command = (struct entry_point_command*)pCurrent;
+    EntryPointCommand *obj = [EntryPointCommand alloc];
+    obj.command = command->cmd;
+    obj.commandSize = command->cmdsize;
+    obj.entryOffset = command->entryoff;
+    obj.stackSize = command->stacksize;
+    
+    pCurrent += obj.commandSize;
+    _size += obj.commandSize + [obj getDataSize];
+    
+    return obj;
+    
+}
+
+- (SourceVersionCommand*) readSourceVersionCommand {
+    struct source_version_command *command = (struct source_version_command*)pCurrent;
+    SourceVersionCommand *obj = [SourceVersionCommand alloc];
+    obj.command = command->cmd;
+    obj.commandSize = command->cmdsize;
+    obj.version = command->version;
+    
+    pCurrent += obj.commandSize;
+    _size += obj.commandSize + [obj getDataSize];
+    
+    return obj;
+}
+
+- (NoteCommand*) readNoteCommand {
+    struct note_command *command = (struct note_command*)pCurrent;
+    NoteCommand *obj = [NoteCommand alloc];
+    obj.command = command->cmd;
+    obj.commandSize = command->cmdsize;
+    obj.ownerName = [NSString stringWithCString: command->data_owner encoding:NSUTF8StringEncoding];
+    obj.fileOffset = command->offset;
+    obj.size = command->size;
+     
+    pCurrent += obj.commandSize;
+    _size += obj.commandSize + [obj getDataSize];
+     
+    return obj;
 }
 
 @end

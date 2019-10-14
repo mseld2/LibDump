@@ -21,6 +21,12 @@
 		5539B82123540B5300260C9B /* BuildVersionCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B82023540B5300260C9B /* BuildVersionCommand.m */; };
 		5539B823235410B900260C9B /* BuildToolVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B822235410B900260C9B /* BuildToolVersion.m */; };
 		5539B8262354137C00260C9B /* DyldInfoCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B8252354137C00260C9B /* DyldInfoCommand.m */; };
+		5539B82923541A2200260C9B /* LinkerOptionCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B82823541A2200260C9B /* LinkerOptionCommand.m */; };
+		5539B82C23541C0100260C9B /* SymsegCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B82B23541C0100260C9B /* SymsegCommand.m */; };
+		5539B82F23541F7000260C9B /* FvmfileCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B82E23541F7000260C9B /* FvmfileCommand.m */; };
+		5539B8322354219100260C9B /* EntryPointCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B8312354219100260C9B /* EntryPointCommand.m */; };
+		5539B8352354237100260C9B /* SourceVersionCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B8342354237100260C9B /* SourceVersionCommand.m */; };
+		5539B8382354277200260C9B /* NoteCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B8372354277200260C9B /* NoteCommand.m */; };
 		55C049E3234DEBCB0005A465 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C049E2234DEBCB0005A465 /* AppDelegate.swift */; };
 		55C049E5234DEBCB0005A465 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C049E4234DEBCB0005A465 /* SceneDelegate.swift */; };
 		55C049E7234DEBCB0005A465 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C049E6234DEBCB0005A465 /* ViewController.swift */; };
@@ -85,6 +91,18 @@
 		5539B822235410B900260C9B /* BuildToolVersion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuildToolVersion.m; sourceTree = "<group>"; };
 		5539B8242354126700260C9B /* DyldInfoCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DyldInfoCommand.h; sourceTree = "<group>"; };
 		5539B8252354137C00260C9B /* DyldInfoCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DyldInfoCommand.m; sourceTree = "<group>"; };
+		5539B82723541A1100260C9B /* LinkerOptionCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkerOptionCommand.h; sourceTree = "<group>"; };
+		5539B82823541A2200260C9B /* LinkerOptionCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinkerOptionCommand.m; sourceTree = "<group>"; };
+		5539B82A23541BE500260C9B /* SymsegCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SymsegCommand.h; sourceTree = "<group>"; };
+		5539B82B23541C0100260C9B /* SymsegCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SymsegCommand.m; sourceTree = "<group>"; };
+		5539B82D23541F5B00260C9B /* FvmfileCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FvmfileCommand.h; sourceTree = "<group>"; };
+		5539B82E23541F7000260C9B /* FvmfileCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FvmfileCommand.m; sourceTree = "<group>"; };
+		5539B8302354217C00260C9B /* EntryPointCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntryPointCommand.h; sourceTree = "<group>"; };
+		5539B8312354219100260C9B /* EntryPointCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntryPointCommand.m; sourceTree = "<group>"; };
+		5539B8332354235500260C9B /* SourceVersionCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SourceVersionCommand.h; sourceTree = "<group>"; };
+		5539B8342354237100260C9B /* SourceVersionCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SourceVersionCommand.m; sourceTree = "<group>"; };
+		5539B8362354275F00260C9B /* NoteCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoteCommand.h; sourceTree = "<group>"; };
+		5539B8372354277200260C9B /* NoteCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoteCommand.m; sourceTree = "<group>"; };
 		55C049DF234DEBCB0005A465 /* LibDump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibDump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C049E2234DEBCB0005A465 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55C049E4234DEBCB0005A465 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -229,12 +247,18 @@
 				5539B8242354126700260C9B /* DyldInfoCommand.h */,
 				5539B8052353DD8700260C9B /* DysymtabCommand.h */,
 				5539B8152353FC9200260C9B /* EncryptionInfoCommand.h */,
+				5539B8302354217C00260C9B /* EntryPointCommand.h */,
+				5539B82D23541F5B00260C9B /* FvmfileCommand.h */,
 				5539B8122353FA4E00260C9B /* LinkeditDataCommand.h */,
+				5539B82723541A1100260C9B /* LinkerOptionCommand.h */,
 				55C04A282353AF620005A465 /* LoadCommand.h */,
+				5539B8362354275F00260C9B /* NoteCommand.h */,
 				5539B80C2353F48400260C9B /* PrebindChecksumCommand.h */,
 				5539B7FC2353D34900260C9B /* PreboundDylibCommand.h */,
 				5539B7FF2353D74200260C9B /* RoutinesCommand.h */,
 				55C04A272353AF4D0005A465 /* SegmentCommand.h */,
+				5539B8332354235500260C9B /* SourceVersionCommand.h */,
+				5539B82A23541BE500260C9B /* SymsegCommand.h */,
 				5539B8022353DA0000260C9B /* SymtabCommand.h */,
 				5539B8092353F12B00260C9B /* TwoLevelHintsCommand.h */,
 				5539B80F2353F72A00260C9B /* UuidCommand.h */,
@@ -266,12 +290,18 @@
 				5539B8252354137C00260C9B /* DyldInfoCommand.m */,
 				5539B8062353DF4500260C9B /* DysmbtabCommand.m */,
 				5539B8162353FD5000260C9B /* EncryptionInfoCommand.m */,
+				5539B8312354219100260C9B /* EntryPointCommand.m */,
+				5539B82E23541F7000260C9B /* FvmfileCommand.m */,
 				5539B8132353FABC00260C9B /* LinkeditDataCommand.m */,
+				5539B82823541A2200260C9B /* LinkerOptionCommand.m */,
 				55C04A2D2353B0290005A465 /* LoadCommand.m */,
+				5539B8372354277200260C9B /* NoteCommand.m */,
 				5539B80D2353F4D200260C9B /* PrebindChecksumCommand.m */,
 				5539B7FD2353D3C400260C9B /* PreboundDylibCommand.m */,
 				5539B8002353D7F400260C9B /* RoutinesCommand.m */,
 				55C04A2F2353B2230005A465 /* SegmentCommand.m */,
+				5539B8342354237100260C9B /* SourceVersionCommand.m */,
+				5539B82B23541C0100260C9B /* SymsegCommand.m */,
 				5539B8032353DA8500260C9B /* SymtabCommand.m */,
 				5539B80A2353F1A700260C9B /* TwoLevelHintsCommand.m */,
 				5539B8102353F77A00260C9B /* UuidCommand.m */,
@@ -414,9 +444,11 @@
 			files = (
 				55C049E7234DEBCB0005A465 /* ViewController.swift in Sources */,
 				5539B823235410B900260C9B /* BuildToolVersion.m in Sources */,
+				5539B8382354277200260C9B /* NoteCommand.m in Sources */,
 				5539B8142353FABC00260C9B /* LinkeditDataCommand.m in Sources */,
 				5539B8072353DF4500260C9B /* DysmbtabCommand.m in Sources */,
 				5539B8042353DA8500260C9B /* SymtabCommand.m in Sources */,
+				5539B82923541A2200260C9B /* LinkerOptionCommand.m in Sources */,
 				55C04A1F235242F60005A465 /* MachOBase.m in Sources */,
 				5539B8172353FD5000260C9B /* EncryptionInfoCommand.m in Sources */,
 				55C04A392353C7ED0005A465 /* BasicCommand.m in Sources */,
@@ -424,7 +456,9 @@
 				55C049E3234DEBCB0005A465 /* AppDelegate.swift in Sources */,
 				5539B8262354137C00260C9B /* DyldInfoCommand.m in Sources */,
 				55C04A302353B2230005A465 /* SegmentCommand.m in Sources */,
+				5539B8322354219100260C9B /* EntryPointCommand.m in Sources */,
 				5539B81B2354000B00260C9B /* Version.m in Sources */,
+				5539B82C23541C0100260C9B /* SymsegCommand.m in Sources */,
 				5539B7FE2353D3C400260C9B /* PreboundDylibCommand.m in Sources */,
 				55C04A1C23523F4C0005A465 /* MachHeader.m in Sources */,
 				5539B82123540B5300260C9B /* BuildVersionCommand.m in Sources */,
@@ -433,10 +467,12 @@
 				55C04A362353C1670005A465 /* Section.m in Sources */,
 				5539B80E2353F4D200260C9B /* PrebindChecksumCommand.m in Sources */,
 				55C04A2523525B960005A465 /* MachOFile.m in Sources */,
+				5539B82F23541F7000260C9B /* FvmfileCommand.m in Sources */,
 				5539B81D2354029000260C9B /* VersionMinCommand.m in Sources */,
 				5539B8012353D7F400260C9B /* RoutinesCommand.m in Sources */,
 				5539B80B2353F1A700260C9B /* TwoLevelHintsCommand.m in Sources */,
 				55C04A2E2353B0290005A465 /* LoadCommand.m in Sources */,
+				5539B8352354237100260C9B /* SourceVersionCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

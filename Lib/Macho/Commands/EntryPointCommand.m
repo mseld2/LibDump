@@ -1,5 +1,5 @@
 //
-//  PreboundDylibCommand.m
+//  EntryPointCommand.m
 //  LibDump
 //
 //  Created by Melissa Weiss on 10/13/19.
@@ -8,20 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-#import "PreboundDylibCommand.h"
+#import "EntryPointCommand.h"
 
-@implementation PreboundDylibCommand
+@implementation EntryPointCommand
 
 - (instancetype) init {
-    return [super initWithName: @"PreboundDylibCommand"];
+    return [super initWithName: @"EntryPointCommand"];
 }
 
 - (NSString*) description {
     NSMutableString *str = [NSMutableString string];
     
     [str appendString: [super description]];
-    [str appendFormat: @"\n  numberOfModules: %@", [self uintToStr: _numberOfModules]];
-    [str appendFormat: @"\n  linkedModules: %@\n}\n", [self uintToStr: _linkedModules]];
+    [str appendFormat: @"\n  entryOffset: %@", [self hexFromUInt: _entryOffset]];
+    [str appendFormat: @"\n  stackSize: %@\n}\n", [self uintToStr: _stackSize]];
     
     return str;
 }
