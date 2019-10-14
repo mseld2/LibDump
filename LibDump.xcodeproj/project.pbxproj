@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5539B7FE2353D3C400260C9B /* PreboundDylibCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B7FD2353D3C400260C9B /* PreboundDylibCommand.m */; };
+		5539B8012353D7F400260C9B /* RoutinesCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B8002353D7F400260C9B /* RoutinesCommand.m */; };
+		5539B8042353DA8500260C9B /* SymtabCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B8032353DA8500260C9B /* SymtabCommand.m */; };
+		5539B8072353DF4500260C9B /* DysmbtabCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B8062353DF4500260C9B /* DysmbtabCommand.m */; };
+		5539B80B2353F1A700260C9B /* TwoLevelHintsCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B80A2353F1A700260C9B /* TwoLevelHintsCommand.m */; };
+		5539B80E2353F4D200260C9B /* PrebindChecksumCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B80D2353F4D200260C9B /* PrebindChecksumCommand.m */; };
+		5539B8112353F77A00260C9B /* UuidCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B8102353F77A00260C9B /* UuidCommand.m */; };
+		5539B8142353FABC00260C9B /* LinkeditDataCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B8132353FABC00260C9B /* LinkeditDataCommand.m */; };
+		5539B8172353FD5000260C9B /* EncryptionInfoCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B8162353FD5000260C9B /* EncryptionInfoCommand.m */; };
+		5539B81B2354000B00260C9B /* Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B81A2354000B00260C9B /* Version.m */; };
+		5539B81D2354029000260C9B /* VersionMinCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B81C2354029000260C9B /* VersionMinCommand.m */; };
+		5539B82123540B5300260C9B /* BuildVersionCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B82023540B5300260C9B /* BuildVersionCommand.m */; };
+		5539B823235410B900260C9B /* BuildToolVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B822235410B900260C9B /* BuildToolVersion.m */; };
+		5539B8262354137C00260C9B /* DyldInfoCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5539B8252354137C00260C9B /* DyldInfoCommand.m */; };
 		55C049E3234DEBCB0005A465 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C049E2234DEBCB0005A465 /* AppDelegate.swift */; };
 		55C049E5234DEBCB0005A465 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C049E4234DEBCB0005A465 /* SceneDelegate.swift */; };
 		55C049E7234DEBCB0005A465 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C049E6234DEBCB0005A465 /* ViewController.swift */; };
@@ -15,6 +29,14 @@
 		55C049EF234DEBCD0005A465 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55C049ED234DEBCD0005A465 /* LaunchScreen.storyboard */; };
 		55C049FA234DEBCE0005A465 /* LibDumpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C049F9234DEBCE0005A465 /* LibDumpTests.swift */; };
 		55C04A05234DEBCE0005A465 /* LibDumpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C04A04234DEBCE0005A465 /* LibDumpUITests.swift */; };
+		55C04A1C23523F4C0005A465 /* MachHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C04A1B23523F4C0005A465 /* MachHeader.m */; };
+		55C04A1F235242F60005A465 /* MachOBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C04A1E235242F60005A465 /* MachOBase.m */; };
+		55C04A2523525B960005A465 /* MachOFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C04A2423525B960005A465 /* MachOFile.m */; };
+		55C04A2E2353B0290005A465 /* LoadCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C04A2D2353B0290005A465 /* LoadCommand.m */; };
+		55C04A302353B2230005A465 /* SegmentCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C04A2F2353B2230005A465 /* SegmentCommand.m */; };
+		55C04A332353BE020005A465 /* DylibCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C04A322353BE020005A465 /* DylibCommand.m */; };
+		55C04A362353C1670005A465 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C04A352353C1670005A465 /* Section.m */; };
+		55C04A392353C7ED0005A465 /* BasicCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C04A382353C7ED0005A465 /* BasicCommand.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +57,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5539B7FC2353D34900260C9B /* PreboundDylibCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreboundDylibCommand.h; sourceTree = "<group>"; };
+		5539B7FD2353D3C400260C9B /* PreboundDylibCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreboundDylibCommand.m; sourceTree = "<group>"; };
+		5539B7FF2353D74200260C9B /* RoutinesCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutinesCommand.h; sourceTree = "<group>"; };
+		5539B8002353D7F400260C9B /* RoutinesCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoutinesCommand.m; sourceTree = "<group>"; };
+		5539B8022353DA0000260C9B /* SymtabCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SymtabCommand.h; sourceTree = "<group>"; };
+		5539B8032353DA8500260C9B /* SymtabCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SymtabCommand.m; sourceTree = "<group>"; };
+		5539B8052353DD8700260C9B /* DysymtabCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DysymtabCommand.h; sourceTree = "<group>"; };
+		5539B8062353DF4500260C9B /* DysmbtabCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DysmbtabCommand.m; sourceTree = "<group>"; };
+		5539B8092353F12B00260C9B /* TwoLevelHintsCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoLevelHintsCommand.h; sourceTree = "<group>"; };
+		5539B80A2353F1A700260C9B /* TwoLevelHintsCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoLevelHintsCommand.m; sourceTree = "<group>"; };
+		5539B80C2353F48400260C9B /* PrebindChecksumCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrebindChecksumCommand.h; sourceTree = "<group>"; };
+		5539B80D2353F4D200260C9B /* PrebindChecksumCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrebindChecksumCommand.m; sourceTree = "<group>"; };
+		5539B80F2353F72A00260C9B /* UuidCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UuidCommand.h; sourceTree = "<group>"; };
+		5539B8102353F77A00260C9B /* UuidCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UuidCommand.m; sourceTree = "<group>"; };
+		5539B8122353FA4E00260C9B /* LinkeditDataCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkeditDataCommand.h; sourceTree = "<group>"; };
+		5539B8132353FABC00260C9B /* LinkeditDataCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinkeditDataCommand.m; sourceTree = "<group>"; };
+		5539B8152353FC9200260C9B /* EncryptionInfoCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EncryptionInfoCommand.h; sourceTree = "<group>"; };
+		5539B8162353FD5000260C9B /* EncryptionInfoCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EncryptionInfoCommand.m; sourceTree = "<group>"; };
+		5539B8182353FF0100260C9B /* VersionMinCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VersionMinCommand.h; sourceTree = "<group>"; };
+		5539B8192353FF6800260C9B /* Version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Version.h; sourceTree = "<group>"; };
+		5539B81A2354000B00260C9B /* Version.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Version.m; sourceTree = "<group>"; };
+		5539B81C2354029000260C9B /* VersionMinCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VersionMinCommand.m; sourceTree = "<group>"; };
+		5539B81E235408EA00260C9B /* BuildVersionCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuildVersionCommand.h; sourceTree = "<group>"; };
+		5539B81F235409E500260C9B /* BuildToolVersion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuildToolVersion.h; sourceTree = "<group>"; };
+		5539B82023540B5300260C9B /* BuildVersionCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuildVersionCommand.m; sourceTree = "<group>"; };
+		5539B822235410B900260C9B /* BuildToolVersion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuildToolVersion.m; sourceTree = "<group>"; };
+		5539B8242354126700260C9B /* DyldInfoCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DyldInfoCommand.h; sourceTree = "<group>"; };
+		5539B8252354137C00260C9B /* DyldInfoCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DyldInfoCommand.m; sourceTree = "<group>"; };
 		55C049DF234DEBCB0005A465 /* LibDump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibDump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C049E2234DEBCB0005A465 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55C049E4234DEBCB0005A465 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +99,23 @@
 		55C04A00234DEBCE0005A465 /* LibDumpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibDumpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C04A04234DEBCE0005A465 /* LibDumpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibDumpUITests.swift; sourceTree = "<group>"; };
 		55C04A06234DEBCE0005A465 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55C04A14235210130005A465 /* LibDump-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LibDump-Bridging-Header.h"; sourceTree = "<group>"; };
+		55C04A1A23523F330005A465 /* MachHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MachHeader.h; sourceTree = "<group>"; };
+		55C04A1B23523F4C0005A465 /* MachHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MachHeader.m; sourceTree = "<group>"; };
+		55C04A1D235242960005A465 /* MachOBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MachOBase.h; sourceTree = "<group>"; };
+		55C04A1E235242F60005A465 /* MachOBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MachOBase.m; sourceTree = "<group>"; };
+		55C04A2323525B870005A465 /* MachOFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MachOFile.h; sourceTree = "<group>"; };
+		55C04A2423525B960005A465 /* MachOFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MachOFile.m; sourceTree = "<group>"; };
+		55C04A272353AF4D0005A465 /* SegmentCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SegmentCommand.h; sourceTree = "<group>"; };
+		55C04A282353AF620005A465 /* LoadCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadCommand.h; sourceTree = "<group>"; };
+		55C04A2D2353B0290005A465 /* LoadCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadCommand.m; sourceTree = "<group>"; };
+		55C04A2F2353B2230005A465 /* SegmentCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SegmentCommand.m; sourceTree = "<group>"; };
+		55C04A312353B9CB0005A465 /* DylibCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DylibCommand.h; sourceTree = "<group>"; };
+		55C04A322353BE020005A465 /* DylibCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DylibCommand.m; sourceTree = "<group>"; };
+		55C04A342353BF490005A465 /* Section.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		55C04A352353C1670005A465 /* Section.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
+		55C04A372353C7670005A465 /* BasicCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicCommand.h; sourceTree = "<group>"; };
+		55C04A382353C7ED0005A465 /* BasicCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicCommand.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +146,7 @@
 		55C049D6234DEBCA0005A465 = {
 			isa = PBXGroup;
 			children = (
+				55C04A1223520F840005A465 /* Lib */,
 				55C049E1234DEBCB0005A465 /* LibDump */,
 				55C049F8234DEBCE0005A465 /* LibDumpTests */,
 				55C04A03234DEBCE0005A465 /* LibDumpUITests */,
@@ -126,6 +194,90 @@
 				55C04A06234DEBCE0005A465 /* Info.plist */,
 			);
 			path = LibDumpUITests;
+			sourceTree = "<group>";
+		};
+		55C04A1223520F840005A465 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				55C04A2B2353AFBD0005A465 /* Macho */,
+				55C04A292353AF750005A465 /* Includes */,
+				55C04A14235210130005A465 /* LibDump-Bridging-Header.h */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		55C04A292353AF750005A465 /* Includes */ = {
+			isa = PBXGroup;
+			children = (
+				5539B81F235409E500260C9B /* BuildToolVersion.h */,
+				5539B8192353FF6800260C9B /* Version.h */,
+				55C04A1A23523F330005A465 /* MachHeader.h */,
+				55C04A1D235242960005A465 /* MachOBase.h */,
+				55C04A2323525B870005A465 /* MachOFile.h */,
+				55C04A342353BF490005A465 /* Section.h */,
+				55C04A2A2353AFAA0005A465 /* Commands */,
+			);
+			path = Includes;
+			sourceTree = "<group>";
+		};
+		55C04A2A2353AFAA0005A465 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				55C04A372353C7670005A465 /* BasicCommand.h */,
+				5539B81E235408EA00260C9B /* BuildVersionCommand.h */,
+				55C04A312353B9CB0005A465 /* DylibCommand.h */,
+				5539B8242354126700260C9B /* DyldInfoCommand.h */,
+				5539B8052353DD8700260C9B /* DysymtabCommand.h */,
+				5539B8152353FC9200260C9B /* EncryptionInfoCommand.h */,
+				5539B8122353FA4E00260C9B /* LinkeditDataCommand.h */,
+				55C04A282353AF620005A465 /* LoadCommand.h */,
+				5539B80C2353F48400260C9B /* PrebindChecksumCommand.h */,
+				5539B7FC2353D34900260C9B /* PreboundDylibCommand.h */,
+				5539B7FF2353D74200260C9B /* RoutinesCommand.h */,
+				55C04A272353AF4D0005A465 /* SegmentCommand.h */,
+				5539B8022353DA0000260C9B /* SymtabCommand.h */,
+				5539B8092353F12B00260C9B /* TwoLevelHintsCommand.h */,
+				5539B80F2353F72A00260C9B /* UuidCommand.h */,
+				5539B8182353FF0100260C9B /* VersionMinCommand.h */,
+			);
+			path = Commands;
+			sourceTree = "<group>";
+		};
+		55C04A2B2353AFBD0005A465 /* Macho */ = {
+			isa = PBXGroup;
+			children = (
+				55C04A1B23523F4C0005A465 /* MachHeader.m */,
+				55C04A1E235242F60005A465 /* MachOBase.m */,
+				55C04A2423525B960005A465 /* MachOFile.m */,
+				55C04A352353C1670005A465 /* Section.m */,
+				55C04A2C2353AFD50005A465 /* Commands */,
+				5539B81A2354000B00260C9B /* Version.m */,
+				5539B822235410B900260C9B /* BuildToolVersion.m */,
+			);
+			path = Macho;
+			sourceTree = "<group>";
+		};
+		55C04A2C2353AFD50005A465 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				55C04A382353C7ED0005A465 /* BasicCommand.m */,
+				5539B82023540B5300260C9B /* BuildVersionCommand.m */,
+				55C04A322353BE020005A465 /* DylibCommand.m */,
+				5539B8252354137C00260C9B /* DyldInfoCommand.m */,
+				5539B8062353DF4500260C9B /* DysmbtabCommand.m */,
+				5539B8162353FD5000260C9B /* EncryptionInfoCommand.m */,
+				5539B8132353FABC00260C9B /* LinkeditDataCommand.m */,
+				55C04A2D2353B0290005A465 /* LoadCommand.m */,
+				5539B80D2353F4D200260C9B /* PrebindChecksumCommand.m */,
+				5539B7FD2353D3C400260C9B /* PreboundDylibCommand.m */,
+				5539B8002353D7F400260C9B /* RoutinesCommand.m */,
+				55C04A2F2353B2230005A465 /* SegmentCommand.m */,
+				5539B8032353DA8500260C9B /* SymtabCommand.m */,
+				5539B80A2353F1A700260C9B /* TwoLevelHintsCommand.m */,
+				5539B8102353F77A00260C9B /* UuidCommand.m */,
+				5539B81C2354029000260C9B /* VersionMinCommand.m */,
+			);
+			path = Commands;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +348,7 @@
 				TargetAttributes = {
 					55C049DE234DEBCA0005A465 = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1100;
 					};
 					55C049F4234DEBCE0005A465 = {
 						CreatedOnToolsVersion = 11.0;
@@ -260,8 +413,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				55C049E7234DEBCB0005A465 /* ViewController.swift in Sources */,
+				5539B823235410B900260C9B /* BuildToolVersion.m in Sources */,
+				5539B8142353FABC00260C9B /* LinkeditDataCommand.m in Sources */,
+				5539B8072353DF4500260C9B /* DysmbtabCommand.m in Sources */,
+				5539B8042353DA8500260C9B /* SymtabCommand.m in Sources */,
+				55C04A1F235242F60005A465 /* MachOBase.m in Sources */,
+				5539B8172353FD5000260C9B /* EncryptionInfoCommand.m in Sources */,
+				55C04A392353C7ED0005A465 /* BasicCommand.m in Sources */,
+				5539B8112353F77A00260C9B /* UuidCommand.m in Sources */,
 				55C049E3234DEBCB0005A465 /* AppDelegate.swift in Sources */,
+				5539B8262354137C00260C9B /* DyldInfoCommand.m in Sources */,
+				55C04A302353B2230005A465 /* SegmentCommand.m in Sources */,
+				5539B81B2354000B00260C9B /* Version.m in Sources */,
+				5539B7FE2353D3C400260C9B /* PreboundDylibCommand.m in Sources */,
+				55C04A1C23523F4C0005A465 /* MachHeader.m in Sources */,
+				5539B82123540B5300260C9B /* BuildVersionCommand.m in Sources */,
 				55C049E5234DEBCB0005A465 /* SceneDelegate.swift in Sources */,
+				55C04A332353BE020005A465 /* DylibCommand.m in Sources */,
+				55C04A362353C1670005A465 /* Section.m in Sources */,
+				5539B80E2353F4D200260C9B /* PrebindChecksumCommand.m in Sources */,
+				55C04A2523525B960005A465 /* MachOFile.m in Sources */,
+				5539B81D2354029000260C9B /* VersionMinCommand.m in Sources */,
+				5539B8012353D7F400260C9B /* RoutinesCommand.m in Sources */,
+				5539B80B2353F1A700260C9B /* TwoLevelHintsCommand.m in Sources */,
+				55C04A2E2353B0290005A465 /* LoadCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +609,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y4X27QQ289;
 				INFOPLIST_FILE = LibDump/Info.plist;
@@ -443,6 +619,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.alltyme.LibDump;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Lib/LibDump-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -452,6 +630,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y4X27QQ289;
 				INFOPLIST_FILE = LibDump/Info.plist;
@@ -461,6 +640,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.alltyme.LibDump;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Lib/LibDump-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
